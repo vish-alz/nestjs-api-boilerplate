@@ -1,6 +1,6 @@
 {
   "name": "nestjs-api-boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A comprehensive boilerplate for building scalable, maintainable, and production-ready API services with NestJS, specifically tailored for MySQL database integration.",
   "author": "Vishal Ranaut <vishalkumar17153@gmail.com>",
   "license": "MIT",
