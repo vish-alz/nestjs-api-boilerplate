@@ -4,9 +4,6 @@
   "description": "A comprehensive boilerplate for building scalable, maintainable, and production-ready API services with NestJS, specifically tailored for MySQL database integration.",
   "author": "Vishal Ranaut <vishalkumar17153@gmail.com>",
   "license": "MIT",
-  "bin": {
-    "create-nestjs-api-boilerplate": "./create-boilerplate.js"
-  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",

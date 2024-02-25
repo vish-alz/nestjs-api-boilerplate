@@ -1,67 +1,163 @@
-# nestjs-api-boilerplate
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+</p>
 
-A comprehensive boilerplate for building scalable, maintainable, and production-ready API services with NestJS, specifically tailored for MySQL database integration.
+# NestJSApiBoilerplate
 
-## Features
-
-- **Pre-configured NestJS**: Set up with the best practices for project structure, configuration, and scalability.
-- **Authentication & Authorization**: Integrated modules for secure authentication and authorization mechanisms.
-- **MySQL Database Integration**: Seamless integration with MySQL for robust data management and operations.
-- **Swagger Documentation**: Pre-configured Swagger for API documentation and testing.
-- **Docker Support**: Dockerfile and docker-compose.yml for easy containerization and deployment.
-- **Testing**: Unit and e2e testing setups with Jest.
-- **Logging & Monitoring**: Configured logging and monitoring for better observability.
-
-## Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-
-- Node.js (v12.x or later)
-- npm/yarn
-- Docker (for containerization features)
-- MySQL Server (for database operations)
+An API Boilerplate to create a ready-to-use REST API in seconds with NestJS 10.x and JWT Auth System :heart_eyes_cat:
 
 ## Installation
 
-To use the `nestjs-api-boilerplate`, follow these steps:
-
 ```bash
-npm install nestjs-api-boilerplate
+   $ npm install
 ```
 
-or using yarn:
+## Set Environment for secret key JWT and other configurations
 
 ```bash
-yarn add nestjs-api-boilerplate
+   $ cp .env.example .env
 ```
 
-## Usage
+To set up on multiple environments, such as dev, stage or prod, we do as follows:
 
-After installation, proceed with the following steps to kickstart your NestJS project with MySQL integration:
+```bash
+   $ cp .env.example .env.dev # or .env.stage, etc
+```
 
-1. **Initialize Your Project**: Create your new project using the boilerplate.
+## Config settings .env for sending a notification when a user registers, forgets password or changes password
 
-   ```bash
-   npx create-nestjs-api-boilerplate my-api-project
-   cd my-api-project
-   ```
+```
+   EMAIL_HOST=smtp.mailtrap.io
+   EMAIL_PORT=2525
+   EMAIL_AUTH_USER=[:user]
+   EMAIL_AUTH_PASSWORD=[:password]
+   EMAIL_DEBUG=true
+   EMAIL_LOGGER=true
+   EMAIL_LAYOUT_DIR='templates/emails/'
+   EMAIL_PARTIAL_DIR='templates/emails/'
+   EMAIL_VIEW_PATH='/templates/emails/'
+   EMAIL_DEFAULT_LAYOUT='index'
+```
 
-2. **Configure MySQL**: Adjust the database configuration settings in your `.env` file or within your application's configuration module to connect to your MySQL database.
+## Config settings .env to connect MySQL
 
-3. **Run the Application**:
+Once the database has been configured, start the Nest App via `npm run start:dev` it automatically synchronizes the entities so it is ready to use. :heart_eyes_cat:
 
-   - For development:
+```
+   TYPEORM_CONNECTION = "mysql"
+   TYPEORM_HOST = "localhost"
+   TYPEORM_PORT = 3306
+   TYPEORM_USERNAME = [:user]
+   TYPEORM_PASSWORD = [:password]
+   TYPEORM_DATABASE = [:database]
+   TYPEORM_AUTO_SCHEMA_SYNC = true
+   TYPEORM_ENTITIES = "dist/**/*.entity.js"
+   TYPEORM_SUBSCRIBERS = "dist/subscriber/**/*.js"
+   TYPEORM_MIGRATIONS = "dist/migrations/**/*.js"
+   TYPEORM_ENTITIES_DIR = "src/entity"
+   TYPEORM_MIGRATIONS_DIR = "src/migration"
+   TYPEORM_SUBSCRIBERS_DIR = "src/subscriber"
+```
 
-     ```bash
-     npm run start:dev
-     ```
+## Install TypeScript Node
 
-   - For production:
+```bash
+   $ npm install -g ts-node
+```
 
-     ```bash
-     npm run start:prod
-     ```
+## Running migrations with typeorm
+
+```bash
+   $ ts-node node_modules/.bin/typeorm migration:run -d dist/typeorm-cli.config
+```
+
+or
+
+```bash
+   $ node_modules/.bin/typeorm migration:run -d dist/typeorm-cli.config
+```
+
+## Running the app
+
+```bash
+    # development
+    $ npm start
+
+    # watch mode
+    $ npm start:dev
+
+    # production mode
+    $ npm start:prod
+```
+
+## Running the app in REPL mode
+
+```bash
+   $ npm start --entryFile repl
+```
+
+or
+
+```bash
+   $ npm start:repl
+```
+
+## Docker
+
+There is a `docker-compose.yml` file for starting MySQL with Docker.
+
+`$ docker-compose up db`
+
+After running, you can stop the Docker container with
+
+`$ docker-compose down`
+
+## Url Swagger for Api Documentation
+
+```
+
+http://127.0.0.1:3000/docs
+
+```
+
+or
+
+```
+
+http://127.0.0.1:3000/docs-json
+
+```
+
+or
+
+```
+
+http://127.0.0.1:3000/docs-yaml
+
+```
+
+Configure `SWAGGER_USER` and `SWAGGER_PASSWORD` in the .env file and set `NODE_ENV` to `local` or `dev` or `staging` to access the SWAGGER(Open API) documentation with basic authentication.
+
+```
+
+NODE_ENV=[:enviroments]
+SWAGGER_USER=[:user]
+SWAGGER_PASSWORD=[:password]
+
+```
+
+If you want to add more environments, include them in the `SWAGGER_ENVS` array in `main.ts`, see the following:
+
+```typescript
+const SWAGGER_ENVS = ['local', 'dev', 'staging'];
+```
+
+## Configuring the NODE_API_PORT environment variable as the default port if you don't want to use the default
+
+```
+   NODE_API_PORT=3000
+```
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+[MIT licensed](LICENSE)
