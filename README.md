@@ -1,8 +1,8 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://i.ibb.co/kJY4JGP/nestjs.png" alt="nestjs" border="0"></a>
 </p>
 
-# NestJSApiBoilerplate
+# NestJS Api Boilerplate
 
 An API Boilerplate to create a ready-to-use REST API in seconds with NestJS 10.x and JWT Auth System :heart_eyes_cat:
 
