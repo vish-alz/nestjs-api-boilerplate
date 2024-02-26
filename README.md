@@ -1,6 +1,43 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://i.ibb.co/kJY4JGP/nestjs.png" alt="nestjs" border="0"></a>
-</p>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+ 
+    }
+    .nestjs {
+      font-family: 'Source Sans Pro', sans-serif; /* Update this if you have a specific font */
+      font-weight: 700; /* Assuming you want bold weight for "NESTJS" */
+      color: #FBBD53; /* Color for "NESTJS" */
+       font-size: 44px;
+     letter-spacing: 3px;
+    }
+    .api {
+      background-color: #FBBD53;
+      color: white;
+      font-family: 'Source Sans Pro', sans-serif; /* Same font family, for consistency */
+      font-weight: 700;
+       font-size: 44px;
+    letter-spacing: 3px;
+    }
+    .boilerplate {
+      color: #FBBD53;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 400; /* Normal weight for "BOILERPLATE" */
+       font-size: 24px;
+       letter-spacing: 3px;
+    }
+  </style>
+</head>
+<body>
+  <p align="center">
+    <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  </p>
+  <p align="center">
+    <span class="nestjs">NESTJS</span> <span class="api" align="center"> API </span>
+  </p>
+  <p align="center" class="boilerplate">BOILERPLATE</p>
+</body>
 
 # NestJS Api Boilerplate
 
